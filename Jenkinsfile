@@ -2,7 +2,7 @@ node
   {
   stage('checkout')
     {
-    checkout scm
+    checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'git-tags', url: 'https://github.com/sriram-naresh/mutli-project.git']]])
     }
   stage('deploy')
     {
