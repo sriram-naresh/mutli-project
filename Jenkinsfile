@@ -2,7 +2,7 @@ node
   {
   stage('checkout')
     {
-    checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'git-tags', url: 'https://github.com/sriram-naresh/mutli-project.git']]])
+   checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'git-tags', url: 'https://github.com/sriram-naresh/mutli-project.git']]])
     }
   stage('deploy')
     {
@@ -23,8 +23,10 @@ node
       echo "Deploying to PROD environment"
       }
       
-    sh """chmod +x HelloWorld.sh 
-    ./HelloWorld.sh"""
+    
+      sh """
+      echo "BUILD SUCCESS"
+        """
  
     }
 }
